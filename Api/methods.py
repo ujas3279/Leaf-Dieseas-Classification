@@ -9,7 +9,6 @@ from flask import abort
 from PIL import Image
 from keras.models import load_model
 import tensorflow as tf
-from keras.applications.resnet50 import preprocess_input
 from tensorflow.keras.preprocessing import image as img
 from keras.preprocessing.image import load_img, img_to_array
 def run_model(img):
@@ -25,7 +24,6 @@ def load_image(filename):
     image = img.load_img(filename,target_size=(256,256))
     x = img_to_array(image)
     x = np.expand_dims(x, axis=0)
-    #x=preprocess_input(x)
     return x
 def classify(data):
 	upload = data
